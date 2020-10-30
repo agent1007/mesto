@@ -1,0 +1,12 @@
+.element {
+    max-width: 282px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 362px;
+}
+
+@media screen and (max-width: 767px) {    
+    .element {
+        max-width: 282px;
+    }
+}
