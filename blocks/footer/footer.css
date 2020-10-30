@@ -3,6 +3,13 @@
     margin: 0 auto 60px;
 }
 
+@media screen and (max-width: 900px) { 
+    .footer {
+        max-width: 760px;
+
+    }
+}
+
 @media screen and (max-width: 767px) {    
     .footer {
        max-width: 282px;

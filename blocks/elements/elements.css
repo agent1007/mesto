@@ -7,6 +7,16 @@
     gap: 20px 12px;
 }
 
+@media screen and (max-width: 900px) { 
+    .elements {
+        max-width: 590px;
+        justify-items: center;
+        grid-template-columns: repeat(2, minmax(min-content, max-content)) ;
+        
+    }
+}
+
+
 @media screen and (max-width: 767px) { 
     .elements {
         max-width: 282px;

@@ -11,7 +11,7 @@
     <div class="page">
 
         <header class="header">
-            <img class="header__logo" src="images/Vector.png" alt="Рисунок">
+            <img class="header__logo" src="images/logo.svg" alt="Рисунок">
         </header>
 
         <main class="content">
@@ -20,13 +20,13 @@
                 <div class="profile__columns">
                     <img class="profile__avatar" src="images/avatar.jpg" alt="Рисунок">
                     <div class="profile__info">
-                        <h2 class="profile__info-title">Жак-Ив Кусто</h2>
-                        <button type="button" class="edit-button"></button>
+                        <h1 class="profile__info-title">Жак-Ив Кусто</h1>
+                        <button type="button" class="profile__edit-button"></button>
                         <p class="profile__info-subtitle">Исследователь океана</p>
                     </div>
                 </div>
                 
-                <button type="button" class="add-button"></button>         
+                <button type="button" class="profile__add-button"></button>         
             </section>
 
             <section class="elements">
@@ -34,42 +34,42 @@
                     <img class="element__image" src="images/karachayevsk.jpg" alt="Рисунок">
                     <div class="element__row">
                         <h2 class="element__title">Карачаевск</h2>
-                        <img class="element__image-heart" src="images/Vector-heart.svg" alt="Рисунок">
-                    </div>
+                        <button type="button" class="element__button"></button>
+                        </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/mount-elbrus.png" alt="Рисунок">
                     <div class="element__row">
                         <h2 class="element__title">Гора Эльбрус</h2>
-                        <img class="element__image-heart" src="images/Vector-heart.svg" alt="Рисунок">
+                        <button type="button" class="element__button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/dombai.png" alt="Рисунок">
                     <div class="element__row">
                         <h2 class="element__title">Домбай</h2>
-                        <img class="element__image-heart" src="images/Vector-heart.svg" alt="Рисунок">
+                        <button type="button" class="element__button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/mount-elbrus.png" alt="Рисунок">
                     <div class="element__row">
                         <h2 class="element__title">Гора Эльбрус</h2>
-                        <img class="element__image-heart" src="images/Vector-heart.svg" alt="Рисунок">
+                        <button type="button" class="element__button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/dombai.png" alt="Рисунок">
                     <div class="element__row">
                         <h2 class="element__title">Домбай</h2>
-                        <img class="element__image-heart" src="images/Vector-heart.svg" alt="Рисунок">
+                        <button type="button" class="element__button"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/karachayevsk.jpg" alt="Рисунок">
                     <div class="element__row">
                         <h2 class="element__title">Карачаево-Черкессия</h2>
-                        <img class="element__image-heart" src="images/Vector-heart.svg" alt="Рисунок">
+                        <button type="button" class="element__button"></button>
                     </div>
                 </div>
             </section>
@@ -81,13 +81,13 @@
 
         <div class="popup"> 
             <div class="popup__container">
-                <h1 class="popup__title">Редактировать профиль</h1>
-                <form class="popup__form">
-                    <input type="text" class="popup__info-title" value="Жак-Ив Кусто" name="info-title">
-                    <input type="text" class="popup__info-subtitle" value="Исследователь океана" name="info-subtitle">
-                    <button type="submit" class="submit-button">Сохранить</button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__form" name="form-popup">
+                    <input type="text" class="popup__info popup__info_title" value="Жак-Ив Кусто" name="info-title">
+                    <input type="text" class="popup__info popup__info_subtitle" value="Исследователь океана" name="info-subtitle">
+                    <button type="submit" class="popup__submit-button">Сохранить</button>
                 </form>
-                <button type="button" class="close-button"></button>
+                <button type="button" class="popup__close-button"></button>
             </div>
         </div>
     </div>

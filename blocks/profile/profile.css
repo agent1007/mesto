@@ -5,6 +5,12 @@
     justify-content: space-between;
 }
 
+@media screen and (max-width: 900px) { 
+    .profile {
+        max-width: 760px;
+    }
+}
+
 @media screen and (max-width: 767px) { 
     .profile {
         max-width: 282px;
