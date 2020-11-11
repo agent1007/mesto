@@ -10,6 +10,7 @@
     background: url(../../../images/VectorEditButton.svg) no-repeat center;
     background-size: 10px 10px;
     cursor: pointer;
+    outline: none;
 }
 
 .profile__edit-button:hover {

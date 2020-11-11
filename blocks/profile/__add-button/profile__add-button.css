@@ -10,6 +10,7 @@
     background: url(../../../images/VectorAddButton.svg) no-repeat center;
     background-size: 22px 22px;
     cursor: pointer;
+    outline: none;
 }
 
 .profile__add-button:hover {

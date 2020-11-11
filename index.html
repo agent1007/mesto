@@ -30,48 +30,6 @@
             </section>
 
             <section class="elements">
-                <div class="element">
-                    <img class="element__image" src="images/karachayevsk.jpg" alt="Рисунок">
-                    <div class="element__row">
-                        <h2 class="element__title">Карачаевск</h2>
-                        <button type="button" class="element__button"></button>
-                        </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/mount-elbrus.png" alt="Рисунок">
-                    <div class="element__row">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/dombai.png" alt="Рисунок">
-                    <div class="element__row">
-                        <h2 class="element__title">Домбай</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/mount-elbrus.png" alt="Рисунок">
-                    <div class="element__row">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/dombai.png" alt="Рисунок">
-                    <div class="element__row">
-                        <h2 class="element__title">Домбай</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/karachayevsk.jpg" alt="Рисунок">
-                    <div class="element__row">
-                        <h2 class="element__title">Карачаево-Черкессия</h2>
-                        <button type="button" class="element__button"></button>
-                    </div>
-                </div>
             </section>
         </main>
 
@@ -79,7 +37,7 @@
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
 
-        <div class="popup"> 
+        <div class="popup popup_type_edit"> 
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form class="popup__form" name="form-popup">
@@ -90,7 +48,36 @@
                 <button type="button" class="popup__close-button"></button>
             </div>
         </div>
+        <div class="popup popup_type_add-card"> 
+            <div class="popup__container">
+                <h2 class="popup__title">Новое место</h2>
+                <form class="popup__form popup__form_type_add-card" name="form-popup">
+                    <input type="text" class="popup__info popup__info_title" placeholder="Название" name="info-title">
+                    <input type="text" class="popup__info popup__info_subtitle" placeholder="Ссылка на картинку" name="info-subtitle">
+                    <button type="submit" class="popup__submit-button">Создать</button>
+                </form>
+                <button type="button" class="popup__close-button"></button>
+            </div>
+        </div>
+        <div class="popup popup_type_image">
+            <div class="popup__container-image">
+                <img class="popup__image" src="" alt="Рисунок">
+                <button type="button" class="popup__close-button-image"></button>
+                <h2 class="popup__image-caption"></h2>
+            </div>
+            
+         </div>
     </div>
+    <template id="element">
+        <div class="element">
+            <img class="element__image" src="" alt="Рисунок">
+            <div class="element__row">
+                <h2 class="element__title"></h2>
+                <button type="button" class="element__button"></button>
+                </div>
+                <button type="button" class="element__delete-button"></button>
+        </div>
+    </template>
     <script src="./scripts/index.js"></script>
 </body>
 </html>

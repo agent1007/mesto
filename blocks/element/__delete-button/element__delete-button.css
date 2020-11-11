@@ -1,24 +1,24 @@
-.popup__close-button {
-    width: 40px;
-    height: 40px;
-    background: transparent url(../../../images/close-icon.svg) center no-repeat;
-    background-size: 35px 35px;
+.element__delete-button {
+    width: 18px;
+    height: 19px;
+    background: url(../../../images/vectorDelete.svg) center no-repeat;
+    background-size: cover;
     position: absolute;
     border: none;
     cursor: pointer;
-    top: -36px;
-    right: -34px;
+    top: 18px;
+    right: 15px;
     cursor: pointer;
     outline: none;
 }
 
-.popup__close-button:hover {
+.element__delete-button:hover {
     opacity: 0.6;
     transition: 1s linear;
 }
 
 @media screen and (max-width: 767px) {    
-    .popup__close-button {
+    .element__delete-button {
         width: 26px;
         height: 26px;
         background-size: 20px 20px;
