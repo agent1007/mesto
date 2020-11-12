@@ -131,7 +131,7 @@ popupTypeAddCard.addEventListener('submit', event => {
       }
     event.preventDefault();
     addCard(data);
-    popupTypeAddCard.reset();
+    
 });
 
 
