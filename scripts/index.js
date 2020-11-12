@@ -1,31 +1,3 @@
-// массив начальных карточек
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-]; 
-
 const popup = document.querySelector('.popup');
 const elements = document.querySelector('.elements');
 
@@ -40,7 +12,6 @@ const profileInfoSubtitle = document.querySelector('.profile__info-subtitle');
 
 const popupTypeAddCard = document.querySelector('.popup_type_add-card');
 const addButton = document.querySelector('.profile__add-button');
-const popupFormAddCard = document.querySelector('div.popup_type_add-card .popup__form');
 const closeButtonAddCard = document.querySelector('div.popup_type_add-card .popup__close-button');
 const popupForm = document.querySelector('.popup__form_type_add-card');
 const popupInfoTitle = document.querySelector('div.popup_type_add-card .popup__info_title');
@@ -48,6 +19,8 @@ const popupInfoSubtitle = document.querySelector('div.popup_type_add-card .popup
 
 const popupTypeImage = document.querySelector('.popup_type_image');
 const closeButtonImage = document.querySelector('div.popup_type_image .popup__close-button-image');
+const popupImage = document.querySelector('.popup__image');
+const popupImageCaption = document.querySelector('.popup__image-caption');
 
 // функция открытия попапа
 function openPopup(popup) {
@@ -82,27 +55,35 @@ popupFormEdit.addEventListener('submit', submitFormEdit);
 addButton.addEventListener('click', () => openPopup(popupTypeAddCard)); 
 closeButtonAddCard.addEventListener('click', () => closePopup(popupTypeAddCard));
 
+// функция лайков image
+function likeImage(likeButton) {
+    likeButton.classList.toggle('element__button_active')
+}
+
+
 // функция создания одной карточки
 function createCard(data) {
     const elementTemplate = document.querySelector('#element').content;
     const cardElement = elementTemplate.cloneNode(true);
-    cardElement.querySelector('.element__image').src = data.link;
-    cardElement.querySelector('.element__title').textContent = data.name;
+    const cardImage = cardElement.querySelector('.element__image')
+    const cardTitle = cardElement.querySelector('.element__title')
+    cardImage.src = data.link;
+    cardImage.alt = data.name;
+    cardTitle.textContent = data.name;
     const likeButton = cardElement.querySelector('.element__button');
     const deleteButton = cardElement.querySelector('.element__delete-button');
-    likeButton.addEventListener('click', () => likeButton.classList.toggle('element__button_active'));
+    likeButton.addEventListener('click', () => likeImage(likeButton));
     deleteButton.addEventListener('click', function () {
       const element = deleteButton.closest('.element');
       element.remove();
     });
-    cardElement.querySelector('.element__image').addEventListener('click', () => openImagePopup(data.link, data.name, data.name));
+    cardImage.addEventListener('click', () => openImagePopup(data.link, data.name, data.name));
     return cardElement;
 }
 
 //функция открытия popup image
 function openImagePopup(src, alt, caption) {
-    const popupImage = document.querySelector('.popup__image');
-    const popupImageCaption = document.querySelector('.popup__image-caption');
+    
     popupImage.src = src;
     popupImage.alt = alt;
     popupImageCaption.textContent = caption;
@@ -131,7 +112,7 @@ popupTypeAddCard.addEventListener('submit', event => {
       }
     event.preventDefault();
     addCard(data);
-    
+    popupForm.reset();
 });
 
 
