@@ -65,8 +65,8 @@ function likeImage(likeButton) {
 function createCard(data) {
     const elementTemplate = document.querySelector('#element').content;
     const cardElement = elementTemplate.cloneNode(true);
-    const cardImage = cardElement.querySelector('.element__image')
-    const cardTitle = cardElement.querySelector('.element__title')
+    const cardImage = cardElement.querySelector('.element__image');
+    const cardTitle = cardElement.querySelector('.element__title');
     cardImage.src = data.link;
     cardImage.alt = data.name;
     cardTitle.textContent = data.name;
@@ -77,7 +77,7 @@ function createCard(data) {
       const element = deleteButton.closest('.element');
       element.remove();
     });
-    cardImage.addEventListener('click', () => openImagePopup(data.link, data.name, data.name));
+    cardImage.addEventListener('click', () => openImagePopup(data.link, data.name));
     return cardElement;
 }
 
