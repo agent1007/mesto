@@ -82,11 +82,11 @@ function createCard(data) {
 }
 
 //функция открытия popup image
-function openImagePopup(src, alt, caption) {
+function openImagePopup(src, alt) {
     
     popupImage.src = src;
     popupImage.alt = alt;
-    popupImageCaption.textContent = caption;
+    popupImageCaption.textContent = alt;
     openPopup(popupTypeImage);
 }
 
