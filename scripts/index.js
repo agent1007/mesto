@@ -25,15 +25,38 @@ const popupImageCaption = document.querySelector('.popup__image-caption');
 // функция открытия попапа
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+            closePopup(popup);
+      } 
+    })
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target === popup) {
+            closePopup(popup);
+      } 
+    })
 }
+
+
+
 
 // функция закрытия попапа
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+            closePopup(popup);
+      } 
+    })
+    popup.removeEventListener('mousedown', (evt) => {
+        if (evt.target === popup) {
+            closePopup(popup);
+      } 
+    })
 }
 
 //команды для попапа Edit
-function openProfilePopup() {
+function openProfilePopup(popup) {
     infoTitle.value = profileInfoTitle.textContent;
     infoSubtitle.value = profileInfoSubtitle.textContent;
 }
@@ -83,7 +106,6 @@ function createCard(data) {
 
 //функция открытия popup image
 function openImagePopup(src, alt) {
-    
     popupImage.src = src;
     popupImage.alt = alt;
     popupImageCaption.textContent = alt;
@@ -118,5 +140,7 @@ popupTypeAddCard.addEventListener('submit', event => {
 
 
 
- 
+
+
+
 

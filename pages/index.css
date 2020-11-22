@@ -43,3 +43,7 @@
 @import url(../blocks/popup/__info/_subtitle-add-card/popup__info_subtitle-add-card.css);
 @import url(../blocks/popup/__submit-button/_add-card/popup__submit-button_add-card.css);
 @import url(../blocks/popup/__close-button/_add-card/popup__close-button_add-card.css);
+@import url(../blocks/error/error.css);
+@import url(../blocks/popup/__info/_state/_invalid/popup__info_state_invalid.css);
+@import url(../blocks/popup/__submit-button/_invalid/popup__submit-button_invalid.css);
+
