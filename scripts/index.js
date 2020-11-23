@@ -21,44 +21,41 @@ const popupTypeImage = document.querySelector('.popup_type_image');
 const closeButtonImage = document.querySelector('div.popup_type_image .popup__close-button-image');
 const popupImage = document.querySelector('.popup__image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
+// функция закрытия попапа через Escape
+function closeByEsc (evt) {
+    if (evt.key === 'Escape') {
+        const popup = document.querySelector('.popup_opened');
+        closePopup(popup);
+  } 
+}
 
+// функция закрытия попапа через клик по оверлею
+function closeByOverlayClick (evt) {
+    if (evt.target === evt.currentTarget) { 
+        closePopup(evt.target); 
+    } 
+}
 // функция открытия попапа
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-    document.addEventListener('keydown', (evt) => {
-        if (evt.key === 'Escape') {
-            closePopup(popup);
-      } 
-    })
-    popup.addEventListener('mousedown', (evt) => {
-        if (evt.target === popup) {
-            closePopup(popup);
-      } 
-    })
+    document.addEventListener('keydown', closeByEsc)
+    popup.addEventListener('mousedown', closeByOverlayClick)
 }
-
-
-
 
 // функция закрытия попапа
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', (evt) => {
-        if (evt.key === 'Escape') {
-            closePopup(popup);
-      } 
-    })
-    popup.removeEventListener('mousedown', (evt) => {
-        if (evt.target === popup) {
-            closePopup(popup);
-      } 
-    })
+    document.removeEventListener('keydown', closeByEsc)
+    popup.removeEventListener('mousedown', closeByOverlayClick)
 }
 
+
+
 //команды для попапа Edit
-function openProfilePopup(popup) {
+function openProfilePopup() {
     infoTitle.value = profileInfoTitle.textContent;
     infoSubtitle.value = profileInfoSubtitle.textContent;
+    
 }
 
 function submitFormEdit (event) {
@@ -74,7 +71,6 @@ closeButtonEdit.addEventListener('click', () => closePopup(popupTypeEdit));
 popupFormEdit.addEventListener('submit', submitFormEdit);
 
 //команды для попапа AddCard
-
 addButton.addEventListener('click', () => openPopup(popupTypeAddCard)); 
 closeButtonAddCard.addEventListener('click', () => closePopup(popupTypeAddCard));
 
@@ -82,7 +78,6 @@ closeButtonAddCard.addEventListener('click', () => closePopup(popupTypeAddCard))
 function likeImage(likeButton) {
     likeButton.classList.toggle('element__button_active')
 }
-
 
 // функция создания одной карточки
 function createCard(data) {

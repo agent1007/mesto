@@ -31,12 +31,11 @@ function setButtonState (button, isActive, config) {
 // функция сброса ошибок
 function resetValidation(form, config) {
     const inputsList = form.querySelectorAll(config.inputSelector);
+    console.log(form);
     inputsList.forEach((form, input, config) => {
         hideError (form, input, config);
     })
 }
-
-
 
 function setEventListeners (form, config) {
     const inputsList = form.querySelectorAll(config.inputSelector);
@@ -47,31 +46,19 @@ function setEventListeners (form, config) {
             setButtonState (submitButton, form.checkValidity(), config)
         });
     })
-    
 }
-
 // функция включеня проверки
 function enableValidation (config) {
     const forms = document.querySelectorAll(config.formSelector);
     forms.forEach((form) => {
         setEventListeners (form, config);
-
         form.addEventListener('submit', (evt) => {
             evt.preventDefault();
         })
         const submitButton = form.querySelector(config.submitButtonSelector);
-        setButtonState (submitButton, form.checkValidity(), config);
-        
-        
+        setButtonState (submitButton, form.checkValidity(), config);       
     })
 }
-
-
-
-
-
-
-
 // конфигурация классов
 const validationConfig = {
     formSelector: '.popup__form',
