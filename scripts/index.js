@@ -44,18 +44,19 @@ closeButtonAddCard.addEventListener('click', () => closePopup(popupTypeAddCard))
 
 closeButtonImage.addEventListener('click', () => closePopup(popupTypeImage));
 
-// перебор массива и вывод всех карточек
-function addCards(data) {
-    const element = new Card(data);
-    elements.prepend(element); 
-} 
-initialCards.forEach(addCards);
 
-// функция добавления новой карточки через кнопку
-function addCard(data) {
+// функция создания карточки
+function createCard (data) {
     const card = new Card(data, '.template-element');
     const cardElement = card.generateCard();
     elements.prepend(cardElement);
+}
+
+
+
+// функция добавления новой карточки через кнопку
+function addCard(data) {
+    createCard (data);
     closePopup(popupTypeAddCard);
 }
 
@@ -75,9 +76,7 @@ import {initialCards} from './array-cards.js';
 import {Card} from './card.js';
 
 initialCards.forEach((item) => {
-    const card = new Card(item, '.template-element');
-    const cardElement = card.generateCard();
-    elements.prepend(cardElement);
+    createCard (item);
 });
 
 

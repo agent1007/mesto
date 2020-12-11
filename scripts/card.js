@@ -26,6 +26,7 @@ export class Card {
         this._element.querySelector('.element__delete-button').addEventListener('click',  () => {
             const element = this._element.querySelector('.element__delete-button').closest('.element');
             element.remove();
+            this._element = null;
           });
     }
 
