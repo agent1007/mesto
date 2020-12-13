@@ -22,6 +22,7 @@ function closeByOverlayClick (evt) {
         closePopup(evt.target); 
     } 
 }
+
 // функция открытия попапа
 function openPopup(popup) {
     popup.classList.add('popup_opened');

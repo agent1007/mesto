@@ -1,6 +1,5 @@
 const popup = document.querySelector('.popup');
 const elements = document.querySelector('.elements');
-
 const popupTypeEdit = document.querySelector('.popup_type_edit');
 const editButton = document.querySelector('.profile__edit-button');
 const popupFormEdit = document.querySelector('div.popup_type_edit .popup__form');
@@ -9,21 +8,19 @@ const infoTitle = document.querySelector('.popup__info_title');
 const infoSubtitle = document.querySelector('.popup__info_subtitle');
 const profileInfoTitle = document.querySelector('.profile__info-title');
 const profileInfoSubtitle = document.querySelector('.profile__info-subtitle');
-
 const popupTypeAddCard = document.querySelector('.popup_type_add-card');
 const addButton = document.querySelector('.profile__add-button');
 const closeButtonAddCard = document.querySelector('div.popup_type_add-card .popup__close-button');
 const popupForm = document.querySelector('.popup__form_type_add-card');
 const popupInfoTitle = document.querySelector('div.popup_type_add-card .popup__info_title');
 const popupInfoSubtitle = document.querySelector('div.popup_type_add-card .popup__info_subtitle');
-
-
 const closeButtonImage = document.querySelector('div.popup_type_image .popup__close-button-image');
 
 //команды для попапа Edit
 function openProfilePopup() {
     infoTitle.value = profileInfoTitle.textContent;
     infoSubtitle.value = profileInfoSubtitle.textContent;
+    editFormValidator.resetValidation();
 }
 
 function submitFormEdit (event) {
@@ -40,10 +37,9 @@ popupFormEdit.addEventListener('submit', submitFormEdit);
 
 //команды для попапа AddCard
 addButton.addEventListener('click', () => openPopup(popupTypeAddCard)); 
+
 closeButtonAddCard.addEventListener('click', () => closePopup(popupTypeAddCard));
-
 closeButtonImage.addEventListener('click', () => closePopup(popupTypeImage));
-
 
 // функция создания карточки
 function createCard (data) {
@@ -51,8 +47,6 @@ function createCard (data) {
     const cardElement = card.generateCard();
     elements.prepend(cardElement);
 }
-
-
 
 // функция добавления новой карточки через кнопку
 function addCard(data) {
@@ -67,6 +61,7 @@ popupTypeAddCard.addEventListener('submit', event => {
       }
     event.preventDefault();
     addCard(data);
+    addFormFalidator.resetValidation();
     popupForm.reset();
 });
 
@@ -79,11 +74,8 @@ initialCards.forEach((item) => {
     createCard (item);
 });
 
-
-
 // импорт FormValidator
 import {FormValidator} from './FormValidator.js';
-
 const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__info',
@@ -91,15 +83,10 @@ const validationConfig = {
     inputInvalidClass: 'popup__info_state_invalid',
     buttonInvalidClass: 'popup__submit-button_invalid'  
 }
-
 const popupFormTypeEdit = document.querySelector('.popup__form_type_edit');
-const editFormValidator = new FormValidator(validationConfig, popupFormTypeEdit);
-editFormValidator.enableValidation();
-
+export const editFormValidator = new FormValidator(validationConfig, popupFormTypeEdit);
 const popupFormTypeAddCard = document.querySelector('.popup__form_type_add-card');
-const addFormFalidator = new FormValidator(validationConfig, popupFormTypeAddCard);
+export const addFormFalidator = new FormValidator(validationConfig, popupFormTypeAddCard);
+
+editFormValidator.enableValidation();
 addFormFalidator.enableValidation();
-
-
-
-

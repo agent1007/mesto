@@ -54,6 +54,15 @@ export class FormValidator {
         const submitButton = this._form.querySelector(this._config.submitButtonSelector);
         this._setButtonState(submitButton, this._form.checkValidity());
     }
+
+    resetValidation () {
+        const inputsList = this._form.querySelectorAll('.popup__info');
+        inputsList.forEach((input) => {
+            this._hideError(input);
+        })
+        const submitButton = this._form.querySelector(this._config.submitButtonSelector);
+        this._setButtonState(submitButton, false);       
+    }
 }
 
 
