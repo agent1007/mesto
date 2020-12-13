@@ -51,6 +51,8 @@ export class FormValidator {
             evt.preventDefault();
         });
         this._setEventListeners(this._form);
+        const submitButton = this._form.querySelector(this._config.submitButtonSelector);
+        this._setButtonState(submitButton, this._form.checkValidity());
     }
 }
 
