@@ -1,12 +1,11 @@
-import {openImagePopup} from './utils.js';
-
 export class Card {
-    constructor(data, templateSelector) {
+    constructor(data, handleCardClick, templateSelector) {
         this._link = data.link;
         this._name = data.name;
         this._templateSelector = templateSelector;
+        this._handleCardClick = handleCardClick;
+        this._handleCardClickHandler = this._handleCardClickHandler.bind(this);
     }
-
     _getTemplate() {
         const cardElement = document
         .querySelector(this._templateSelector)
@@ -15,13 +14,11 @@ export class Card {
         .cloneNode(true);
         return cardElement;
     }
-
     _handleLikeImage() {
         this._element.querySelector('.element__button').addEventListener('click', () => {
             this._element.querySelector('.element__button').classList.toggle('element__button_active');
         });
-      }
-    
+    }
     _handleDeleteButton() {
         this._element.querySelector('.element__delete-button').addEventListener('click',  () => {
             const element = this._element.querySelector('.element__delete-button').closest('.element');
@@ -29,20 +26,16 @@ export class Card {
             this._element = null;
           });
     }
-
-    _handleOpenImagePopup() {
-        this._element.querySelector('.element__image').addEventListener('click', () => openImagePopup(this._link, this._name));
+    _handleCardClickHandler() {
+        this._element.querySelector('.element__image').addEventListener('click', () => this._handleCardClick(this._link, this._name));
     }
-
     generateCard() {
         this._element = this._getTemplate();
         this._handleLikeImage();
         this._handleDeleteButton();
-        this._handleOpenImagePopup();
+        this._handleCardClickHandler();
         this._element.querySelector('.element__image').src = this._link;
         this._element.querySelector('.element__title').textContent = this._name;
         return this._element;
     } 
 }
-
-

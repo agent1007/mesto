@@ -3,7 +3,7 @@
     max-width: 865px;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    grid-template-columns: minmax(min-content, max-content) 0px;
     padding: 0px;
 }
 
