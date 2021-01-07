@@ -3,9 +3,7 @@ export class Card {
         this._link = data.link;
         this._name = data.name;
         this._templateSelector = templateSelector;
-        this._handleCardClick = handleCardClick;
-        this._handleCardClickHandler = this._handleCardClickHandler;
-        
+        this._handleCardClick = handleCardClick; 
     }
     _getTemplate() {
         const cardElement = document
