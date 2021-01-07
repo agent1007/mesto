@@ -1,6 +1,6 @@
 export class Popup {
     constructor (popupSelector) {
-        this._popupSelector = popupSelector;
+        this._popup = popupSelector;
         this._handleEscClose = this._handleEscClose.bind(this);;
 }
 // закрытие через Esc
@@ -17,17 +17,17 @@ _handleOverlayClose(evt) {
 }
 // открытие popup
 open() {
-    this._popupSelector.classList.add('popup_opened');
+    this._popup.classList.add('popup_opened');
     document.addEventListener('keydown', this._handleEscClose)
 }
 // закрытие popup
 close() {
-    this._popupSelector.classList.remove('popup_opened');
+    this._popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', this._handleEscClose);
 }
 // закрытие через иконку
 setEventListeners() {
-    this._popupSelector.querySelector('.popup__close-button').addEventListener('click', () => this.close()); 
-    this._popupSelector.addEventListener('click', (evt) => this._handleOverlayClose(evt)); 
+    this._popup.querySelector('.popup__close-button').addEventListener('click', () => this.close()); 
+    this._popup.addEventListener('click', (evt) => this._handleOverlayClose(evt)); 
 }
 }

@@ -1,53 +1,56 @@
 import "./index.css";
-
-import {popup, elements, editButton, popupTypeEdit, profileInfoTitle, 
+import {
+    elements, editButton, popupTypeEdit, profileInfoTitle,
     profileInfoSubtitle, infoTitle, infoSubtitle, addButton,
-    popupTypeAddCard, popupTypeImage, popupFormTypeEdit, validationConfig, 
-    popupFormTypeAddCard} from '../components/utils.js';
-    
-import {initialCards} from '../components/array-cards.js';
+    popupTypeAddCard, popupTypeImage, popupFormTypeEdit, validationConfig,
+    popupFormTypeAddCard
+} from '../utils/constants.js';
+import { initialCards } from '../utils/constants.js';
+import { UserInfo } from '../components/UserInfo.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { Card } from '../components/Card.js';
+import { Section } from '../components/Section.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { FormValidator } from '../components/FormValidator.js';
 
-import {Popup} from '../components/Popup.js';
-const typePopupEdit = new Popup(popupTypeEdit);
-typePopupEdit.setEventListeners();
-editButton.addEventListener('click', () => editPopupWithForm.open());
-const typePopupAddCard = new Popup(popupTypeAddCard);
-addButton.addEventListener('click', () => typePopupAddCard.open()); 
-typePopupAddCard.setEventListeners();
+editButton.addEventListener('click', () => {
+    editPopupWithForm.open();
+    editFormValidator.resetValidation();
+}
+);
 
-import {UserInfo} from '../components/UserInfo.js';
+addButton.addEventListener('click', () => {
+    addPopupWithForm.open();
+    addFormFalidator.resetValidation();
+});
+
+const userInfo = new UserInfo(profileInfoTitle, profileInfoSubtitle);
+
 const editPopupWithForm = new PopupWithForm(popupTypeEdit, () => {
-    const userInfo = new UserInfo(profileInfoTitle, profileInfoSubtitle);
     userInfo.setUserInfo(infoTitle, infoSubtitle);
-    const popupSubmit = new Popup(popup);
-    popupSubmit.close();
 });
 editPopupWithForm.setEventListeners();
 
-import {PopupWithImage} from '../components/PopupWithImage.js';
-const popupImage = new PopupWithImage (popupTypeImage);
+const popupImage = new PopupWithImage(popupTypeImage);
 popupImage.setEventListeners();
 
-import {Card} from '../components/card.js';
 function createCard(item) {
     const card = new Card(item, () => popupImage.openImage(item.link, item.name), '.template-element');
     const cardElement = card.generateCard();
-    cardSection.addItem(cardElement); 
+    return cardElement
+}
+function renderCard(item) {
+    const cardElement = createCard(item)
+    cardSection.addItem(cardElement);
 }
 
-import {Section} from '../components/Section.js';
-const cardSection = new Section (initialCards, createCard, elements);
+const cardSection = new Section(initialCards, renderCard, elements);
 cardSection.renderItems();
 
-import {PopupWithForm} from '../components/PopupWithForm.js';
 const addPopupWithForm = new PopupWithForm(popupTypeAddCard, (data) => {
-    createCard (data);
-    typePopupAddCard.close(popup);
-    addFormFalidator.resetValidation();
-} );
+    renderCard(data);
+});
 addPopupWithForm.setEventListeners();
-
-import {FormValidator} from '../components/FormValidator.js';
 
 const editFormValidator = new FormValidator(validationConfig, popupFormTypeEdit);
 editFormValidator.enableValidation();
