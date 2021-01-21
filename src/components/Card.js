@@ -25,7 +25,21 @@ export class Card {
             if (this._likes[i]._id === this._userId) {
                 return true
             }
-            return false}}
+            return false
+        }
+    }
+
+    _isCardLikedByThisUser() {
+        for (let i = 0; i < this._likes.length; i ++) {
+            if (this._likes[i]._id === this._userId) {
+                        return true
+                    }
+                    
+                } return false
+             }
+
+
+
     setLikes(arrayLikes) {
         const cardsLikesButton = this._element.querySelector('.element__button');
         this._element.querySelector('.element__like-numbers').textContent = arrayLikes.length;

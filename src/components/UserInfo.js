@@ -16,5 +16,5 @@ export class UserInfo {
     }
     setUserInfoAvatar(link) {
         this._elementAvatar.src = link;
-}
+    }
 }

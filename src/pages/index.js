@@ -2,9 +2,9 @@ let userId;
 import "./index.css";
 import {
     elements, editButton, popupTypeEdit, profileInfoTitle, profileAvatar,
-    profileInfoSubtitle, addButton,
+    profileInfoSubtitle, addButton, infoTitle, infoSubtitle,
     popupTypeAddCard, popupTypeImage, popupFormTypeEdit, popupFormAvatar, validationConfig,
-    popupFormTypeAddCard, popupConfirm, popupAvatar, 
+    popupFormTypeAddCard, popupConfirm, popupAvatar, popupInfoTitle, popupInfoSubtitle
 } from '../utils/constants.js';
 
 import { UserInfo } from '../components/UserInfo.js';
@@ -22,6 +22,9 @@ const api = new Api({
 
 editButton.addEventListener('click', () => {
     editPopupWithForm.open();
+    const data = userInfo.getUserInfo();
+    popupInfoTitle.value = data.infoTitle;
+    popupInfoSubtitle.value = data.infoSubtitle;
     editFormValidator.resetValidation();
 });
 
@@ -149,6 +152,7 @@ Promise.all([
         const user = values[0];
         const card = values[1];
         userId = user._id;
-        userInfo.setUserInfo(user.name, user.about);
+        userInfo.setUserInfo(user.name, user.about, user.avatar);
+        userInfo.setUserInfoAvatar(user.avatar);
         cardSection.renderItems(card);
     })

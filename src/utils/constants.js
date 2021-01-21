@@ -51,8 +51,8 @@ export const initialCards = [
     }
 ]; 
 
-export const popupInfoTitle = document.querySelector('div.popup_type_add-card .popup__info_title');
-export const popupInfoSubtitle = document.querySelector('div.popup_type_add-card .popup__info_subtitle');
+export const popupInfoTitle = document.querySelector('.popup__info_title');
+export const popupInfoSubtitle = document.querySelector('.popup__info_subtitle');
 
 
 
