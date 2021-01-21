@@ -20,9 +20,9 @@
                 <div class="profile__columns">
                     <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>"  alt="Рисунок">
                     <div class="profile__info">
-                        <h1 class="profile__info-title">Жак-Ив Кусто</h1>
+                        <h1 class="profile__info-title"></h1>
                         <button type="button" class="profile__edit-button"></button>
-                        <p class="profile__info-subtitle">Исследователь океана</p>
+                        <p class="profile__info-subtitle"></p>
                     </div>
                 </div>
                 
@@ -48,8 +48,8 @@
                         maxlength="40"
                         class="popup__info popup__info_title popup__input" 
                         placeholder="Имя" 
-                        value="Жак-Ив Кусто" 
-                        name="info-title"
+                        value="" 
+                        name="name"
                         id="info-title-edit">
                     <span id="info-title-edit-error" class="error"></span>
                     <input 
@@ -59,8 +59,8 @@
                         maxlength="200"
                         class="popup__info popup__info_subtitle popup__input" 
                         placeholder="Проффесия" 
-                        value="Исследователь океана" 
-                        name="info-subtitle"
+                        value="" 
+                        name="job"
                         id="info-subtitle-edit">
                     <span id="info-subtitle-edit-error" class="error"></span>    
                     <button type="submit" class="popup__submit-button">Сохранить</button>
@@ -103,13 +103,41 @@
                 <h2 class="popup__image-caption">Карачаевск</h2>
             </div>
         </div>
+        <div class="popup popup_confirm"> 
+            <div class="popup__container-confirm">
+                <h2 class="popup__title popup__title_confirm">Вы уверены?</h2>
+                <form class="popup__form popup__form-confirm" name="form-popup">
+                    <button type="submit" class="popup__submit-button">Да</button>
+                </form>
+                <button type="button" class="popup__close-button popup__close-button_add-card"></button>
+            </div>
+        </div>
+        <div class="popup popup_avatar"> 
+            <div class="popup__container-add-card">
+                <h2 class="popup__title popup__title_add-card">Обновить аватар</h2>
+                <form class="popup__form popup__form-avatar" name="form-popup">
+                    <input 
+                        type="url" 
+                        required 
+                        class="popup__info popup__info_subtitle popup__info_subtitle-add-card" 
+                        placeholder="Ссылка на аватар" 
+                        name="link"
+                        id="info-subtitle-avatar">
+                    <span id="info-subtitle-avatar-error" class="error"></span>  
+                    <button type="submit" class="popup__submit-button popup__submit-button_add-card">Сохранить</button>
+                </form>
+                <button type="button" class="popup__close-button popup__close-button_add-card"></button>
+            </div>
+        </div>
     </div>
     <template class="template-element" id="element">
         <div class="element">
             <img class="element__image" src="images/karachayevsk.jpg" alt="Рисунок1">
             <div class="element__row">
                 <h2 class="element__title"></h2>
+                <div class="element__buttons">
                 <button type="button" class="element__button"></button>
+                <div class="element__like-numbers"></div></div>
                 </div>
                 <button type="button" class="element__delete-button"></button>
         </div>
