@@ -148,11 +148,10 @@ Promise.all([
     api.getUserData(),
     api.getInitialCards() 
 ])
-    .then((values) => {
-        const user = values[0];
-        const card = values[1];
-        userId = user._id;
-        userInfo.setUserInfo(user.name, user.about, user.avatar);
-        userInfo.setUserInfoAvatar(user.avatar);
-        cardSection.renderItems(card);
+    
+    .then(([{name, about, avatar, _id}, cards]) => {
+        userId = _id;
+        userInfo.setUserInfo(name, about, avatar);
+        userInfo.setUserInfoAvatar(avatar);
+        cardSection.renderItems(cards);
     })
